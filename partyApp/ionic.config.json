@@ -1,7 +1,0 @@
-{
-  "name": "partyApp",
-  "integrations": {
-    "cordova": {}
-  },
-  "type": "angular"
-}
