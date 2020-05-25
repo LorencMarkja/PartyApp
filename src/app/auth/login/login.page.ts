@@ -37,7 +37,7 @@ export class LoginPage {
         async token => {
           localStorage.setItem('token', token);
           loading.dismiss();
-          this.router.navigateByUrl('/create');
+          this.router.navigateByUrl('/dashboard');
         },
         async () => {
           const alert = await this.alertCtrl.create({ message: 'Login Failed', buttons: ['OK'] });
