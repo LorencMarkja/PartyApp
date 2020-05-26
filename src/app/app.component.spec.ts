@@ -1,11 +1,14 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TestBed, async } from '@angular/core/testing';
 
-import { Platform } from '@ionic/angular';
+import {IonicModule, Platform} from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {HttpClientModule} from '@angular/common/http';
+import {RouterModule} from '@angular/router';
 
 describe('AppComponent', () => {
 
@@ -28,13 +31,13 @@ describe('AppComponent', () => {
     }).compileComponents();
   }));
 
-  it('should create the app', () => {
+  it('Test creazione app passato', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   });
 
-  it('should initialize the app', async () => {
+  it('Test inizializzazione app passato', async () => {
     TestBed.createComponent(AppComponent);
     expect(platformSpy.ready).toHaveBeenCalled();
     await platformReadySpy;
