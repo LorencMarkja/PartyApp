@@ -1,5 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
+import { HttpClientTestingModule} from '@angular/common/http/testing';
+import { HttpClientModule} from '@angular/common/http';
 
 import { DashboardPage } from './dashboard.page';
 
@@ -9,8 +11,10 @@ describe('DashboardPage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DashboardPage ],
-      imports: [IonicModule.forRoot()]
+      declarations: [ ],
+      imports: [IonicModule.forRoot(),
+                HttpClientModule,
+                HttpClientTestingModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(DashboardPage);
@@ -18,7 +22,7 @@ describe('DashboardPage', () => {
     fixture.detectChanges();
   }));
 
-  it('should create', () => {
+  it('Test Passato', () => {
     expect(component).toBeTruthy();
   });
 });

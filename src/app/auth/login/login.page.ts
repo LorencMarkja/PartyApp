@@ -4,6 +4,7 @@ import { LoadingController, AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -15,8 +16,7 @@ export class LoginPage {
       private authService: AuthService,
       private alertCtrl: AlertController,
       private loadingCtrl: LoadingController,
-      private router: Router
-  ) { }
+      private router: Router) { }
 
   form = new FormGroup({
     username: new FormControl('', [
