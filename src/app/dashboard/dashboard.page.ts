@@ -8,8 +8,6 @@ import { Key } from 'protractor';
   styleUrls: ['./dashboard.page.scss'],
 })
 export class DashboardPage {
-
-  
   constructor(private http: HttpClient) { }
   onCreate() {
     // Do this on service. But for this demo lets do here

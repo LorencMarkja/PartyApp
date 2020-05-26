@@ -1,7 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
-
+import { APP_BASE_HREF } from '@angular/common';
 import { HomePage } from './home.page';
+import { RouterModule} from '@angular/router';
 
 describe('HomePage', () => {
   let component: HomePage;
@@ -10,7 +11,12 @@ describe('HomePage', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ HomePage ],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule.forRoot(),
+                RouterModule.forRoot([])],
+      providers: [
+        { provide: APP_BASE_HREF, useValue : '/' }
+      ]
+
     }).compileComponents();
 
     fixture = TestBed.createComponent(HomePage);
@@ -18,7 +24,7 @@ describe('HomePage', () => {
     fixture.detectChanges();
   }));
 
-  it('should create', () => {
+  it('Test Passato', () => {
     expect(component).toBeTruthy();
   });
 });
