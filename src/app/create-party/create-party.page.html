@@ -1,0 +1,52 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-title > CREA PARTY </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="dashboard" color="secondary"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form [formGroup]="form_create" (submit)="onCreate()" class="formr">
+    <ion-item>
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input type="text" required formControlName="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Descrizione</ion-label>
+      <ion-textarea type="text" required formControlName="description"> </ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Genere</ion-label>
+      <ion-select required formControlName="genre" interface="popover">
+        <ion-select-option value="rock">Rock</ion-select-option>
+        <ion-select-option value="soul">Soul</ion-select-option>
+        <ion-select-option value="dance">Dance</ion-select-option>
+        <ion-select-option value="house">House</ion-select-option>
+        <ion-select-option value="tech">Tech-house</ion-select-option>
+        <ion-select-option value="latino">Latino</ion-select-option>
+
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Mood</ion-label>
+      <ion-select required formControlName="mood" interface="popover">
+        <ion-select-option value="anni 80-90">Anni 80-90</ion-select-option>
+        <ion-select-option value="canzoni cartoni">Canzoni cartoni</ion-select-option>
+
+
+      </ion-select>
+    </ion-item>
+
+    <ion-button type="submit" class="ion-margin-top" expand="block" [disabled]="form_create.invalid">Crea</ion-button>
+
+  </form>
+
+
+
+</ion-content>
