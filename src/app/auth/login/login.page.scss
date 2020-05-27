@@ -1,13 +1,20 @@
+ion-title{
+  font-weight: 400 !important;
+  text-transform: uppercase;
+}
+
 ion-toolbar{
   --background:none;
 }
 
-.forml ion-item{
-  margin: 5% 0 5% 0 ;
-  align-items: center;
+ion-button{
+  font-family: 'Lato Regular' !important;
+  text-transform: uppercase;
 }
 
-.forml ion-button{
-  margin-top: 5% ;
+form ion-item{
+  
+  margin: 5% 0 5% 0 ;
+  align-items: center;
 }
 

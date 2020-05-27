@@ -9,11 +9,10 @@
 
 <ion-content class="ion-padding">
 
-  <form [formGroup]="form" (submit)="onSubmit()" class="forml">
+  <form [formGroup]="form" (submit)="onSubmit()">
     
     <ion-item>
 
-      <ion-icon slot="start" name="person-circle-outline" color="primary"></ion-icon>
       <ion-label position="floating">Username</ion-label>
       <ion-input type="text" required formControlName="username"></ion-input>
    
@@ -22,7 +21,6 @@
     <ion-item>
 
       <ion-label position="floating">Password</ion-label>
-      <ion-icon slot="start" name="lock-closed-outline" color="primary"></ion-icon>
       <ion-input type="password" required formControlName="password"></ion-input>
    
     </ion-item>
