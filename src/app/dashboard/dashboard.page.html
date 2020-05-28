@@ -1,18 +1,21 @@
 <ion-header class="ion-no-border">
-  <ion-toolbar color="primary">
-    <ion-title>Benvenuto </ion-title> <!--da inserire lo username dell'utente -->
-  </ion-toolbar>
+    <ion-toolbar color="primary">
+        <ion-title>Benvenuto {{name}}   </ion-title> <!--da inserire lo username dell'utente -->
+    </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <div class="addParty">
-      <ion-fab-button (click)="onCreate()">
-          <ion-icon name="add"></ion-icon> 
-      </ion-fab-button>
-   <p>Crea il tuo Party</p> 
-  </div>
+    <div class="addParty">
+        <ion-fab-button (click)="onCreate()">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+        <p>Crea il tuo Party</p>
+    </div>
 
 
-  <!--<ion-button (click)="onCreate_1()">clicca</ion-button>-->
+
+
+
 
 </ion-content>
+

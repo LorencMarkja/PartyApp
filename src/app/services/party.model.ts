@@ -4,6 +4,5 @@ export interface Party {
     description?: string;
     genre: string;
     mood: string;
-   //  startT: string;
-   // endT: string;
+    user: string;
 }

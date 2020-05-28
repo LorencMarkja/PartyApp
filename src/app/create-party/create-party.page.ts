@@ -5,6 +5,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AlertController, LoadingController, ToastController} from '@ionic/angular';
 import {PartyService} from '../services/party.service';
 import { NavController } from '@ionic/angular';
+import * as jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-create-party',
@@ -12,6 +13,7 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./create-party.page.scss'],
 })
 export class CreatePartyPage  {
+  Uid: any ;
 
 
   constructor(
@@ -42,6 +44,10 @@ export class CreatePartyPage  {
       Validators.required,
 
     ]),
+    user: new FormControl('', [
+      Validators.required,
+
+    ]),
   });
 
 
@@ -67,6 +73,13 @@ export class CreatePartyPage  {
         }
     );
 
+  }
+
+  ionViewDidEnter(){
+    const token = localStorage.getItem('token');
+    const decoded = jwt_decode(token);
+    console.log(decoded);
+    this.Uid = decoded['user_id'];
   }
 
 }

@@ -9,6 +9,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$description = $data->description;
 	$genre = $data->genre;
     $mood = $data->mood;
+    $user= $data->user;
+
 
 
 
@@ -17,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // U can do validation like unique username etc....
 
 
-    $sql = $conn->query("INSERT INTO party (name, description, genre, mood) VALUES ('$name', '$description', '$genre', '$mood')");
+    $sql = $conn->query("INSERT INTO party (name, description, genre, mood, organizer) VALUES ('$name', '$description', '$genre', '$mood', '$user')");
     if ($sql) {
         http_response_code(201);
         echo json_encode(array('message' => 'Party created'));
