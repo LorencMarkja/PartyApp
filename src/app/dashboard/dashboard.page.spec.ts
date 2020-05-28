@@ -2,6 +2,10 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
 import { DashboardPage } from './dashboard.page';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {HttpClientModule} from '@angular/common/http';
+import {RouterModule} from '@angular/router';
+import {APP_BASE_HREF} from '@angular/common';
 
 describe('DashboardPage', () => {
   let component: DashboardPage;
@@ -10,7 +14,13 @@ describe('DashboardPage', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ DashboardPage ],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule.forRoot(),
+                HttpClientTestingModule,
+                HttpClientModule,
+                RouterModule.forRoot([])],
+      providers: [
+        { provide: APP_BASE_HREF, useValue : '/' }
+      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(DashboardPage);
