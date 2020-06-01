@@ -12,13 +12,18 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () => import('./auth/register/register.module').then( m => m.RegisterPageModule)
   },
-  {
+  /*{
     path: 'dashboard',
     loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule)
-  },
+  },*/
   {
     path: 'create-party',
     loadChildren: () => import('./create-party/create-party.module').then( m => m.CreatePartyPageModule)
+  },
+  {
+    path: 'tabs',
+    // loadChildren: ' ./tabs/tabs.module#TabsPageModule'
+    loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule)
   },
 ];
 
