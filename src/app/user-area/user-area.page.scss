@@ -2,6 +2,10 @@ ion-content{
   --background: url("../../assets/bg.jpg") no-repeat;
 }
 
+b {
+  font-weight: 500;
+}
+
 h1{
   font-family: 'Lato Black';
 }
@@ -15,6 +19,4 @@ h1{
 .avatar ion-avatar{
   width: 100px;
   height: 100px;
-}
-.testo {
 }
