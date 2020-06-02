@@ -1,9 +1,34 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>user-area</ion-title>
+
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-title > PROFILO </ion-title>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-infinite-scroll>
+  <! -- immagine dell'utente loggato>
+  <div class="avatar">
+    <ion-avatar class="ion-align-self-end">
+      <ion-img src="https://www.bright.ug/sites/default/files/styles/medium/public/projectteampics/patrizio.jpg?itok=9QN6if5b"></ion-img>
+    </ion-avatar>
+  </div><br>
 
+  <div align="center" class="testo">
+  <ion-text >
+    <h6><b>Nome: </b> {{name}} </h6>
+    <h6><b>Cognome: </b>{{lastname}}</h6>
+    <h6><b>Username:</b> {{username}}</h6>
+  </ion-text>
+
+    <ion-button size="small" color="warning">Cambia Password</ion-button><br>
+    <ion-button size="small" color="danger"> Logout </ion-button><br><br><br>
+
+      Sezione Party creati
+    </div>
+
+
+
+  </ion-infinite-scroll>
 </ion-content>
