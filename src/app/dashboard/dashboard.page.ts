@@ -15,7 +15,7 @@ export class DashboardPage {
 
   Uid: any;
   name: any;
-  partys: Party [];
+  partys: Party[] ;
 
 
   constructor(
