@@ -1,21 +1,54 @@
+
 <ion-header class="ion-no-border">
     <ion-toolbar color="primary">
-        <ion-title>Benvenuto {{name}}   </ion-title> <!--da inserire lo username dell'utente -->
+        <ion-title><ion-img class="logo" src="../../assets/PartyApp.png" alt="PartyAppLogo"  style="width: 12%" > </ion-img> PartyApp </ion-title>
+
     </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
+    <!--
     <div class="addParty">
         <ion-fab-button (click)="onCreate()">
-            <ion-icon name="add"></ion-icon>
-        </ion-fab-button>
-        <p>Crea il tuo Party</p>
+              <ion-icon name="add"></ion-icon>
+          </ion-fab-button>
+          <p>Crea il tuo Party</p>
+     </div> -->
+
+
+    <div class="new_P">
+        <ion-list class="lista" (click)="onCreate()">
+            <ion-item>
+                <ion-thumbnail slot="start">
+                    <ion-img src="../../assets/images/add.png" class="Add">  </ion-img>          </ion-thumbnail>
+                <ion-label>
+                    <h2> Crea il tuo party</h2>
+                </ion-label>
+                <ion-icon name="chevron-forward-outline"></ion-icon>
+            </ion-item>
+        </ion-list>
     </div>
 
 
+    <ion-list class="lista">
+
+        <ion-item  *ngFor="let party of partys"  >
+            <ion-thumbnail slot="start">
+                <img src="../../assets/images/{{party.image}}.png">
+            </ion-thumbnail>
+            <ion-label>
+                <h2> {{party.name}}</h2>
+                <p>{{party.genre}}-{{party.mood}}</p>
+                <p>{{party.description}} </p>
 
 
+            </ion-label>
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+        </ion-item>
 
+
+    </ion-list>
 
 </ion-content>
+
 

@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo json_encode(array('message' => 'Party created'));
     } else {
         http_response_code(500);
-        echo json_encode(array('message' => 'Internal Server error  '));
+        echo json_encode(array('message' =>'Internal Server error'));
       // echo " $name, $description, $genre, $mood, $startT, $endT ";
 
     }

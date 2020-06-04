@@ -1,6 +1,8 @@
 <?php
 header("Content-Type: application/json");
+header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Credentials: true");
+
 header("Access-Control-Max-Age: 86400");
 
 if (isset($_SERVER['HTTP_ORIGIN'])) {

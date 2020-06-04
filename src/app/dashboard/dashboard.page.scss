@@ -1,6 +1,7 @@
 ion-title{
     font-weight: 400;
     text-transform: uppercase;
+    margin-left: 10px;
 }
 .addParty{
     display: flex;
@@ -10,3 +11,10 @@ ion-title{
 .addParty p{
     margin: 5%;
 }
+
+.logo{
+    float: left;
+    margin-right: 40px;
+    margin-left: 20px;
+}
+
