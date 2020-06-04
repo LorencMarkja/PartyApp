@@ -15,7 +15,8 @@ export class DashboardPage {
 
   Uid: any;
   name: any;
-  partys: Party[] ;
+  // @ts-ignore
+  partys: Party[100] ;
 
 
   constructor(
