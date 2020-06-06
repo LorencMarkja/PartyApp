@@ -23,7 +23,7 @@ export class PartyService {
   }
   get(id:string){
     // return this.http.get<[Party]>(this.url + '/getAll-party');
-    return this.http.get<[Party]>(this.url + '/getAll-party.php' + '/' + id);
+    return this.http.get<[Party]>(this.url + '/getAll-party.php' + '?id=' + id);
   }
 
 }
