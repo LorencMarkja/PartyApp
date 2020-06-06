@@ -8,12 +8,23 @@ include_once 'config/cors.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
    // echo 'Get';
-    
-    $data = array();
-    $sql= $conn->query("SELECT *FROM party WHERE status='1' ");
+   $data = array();
+   if(isset($_GET['id'])){
+        $id= $conn->real_escape_string($_GET['id']);
+        $sql= $conn->query("SELECT * FROM party WHERE organizer='$id' ");
+        while ($d = $sql->fetch_assoc()){
+                $data[]=$d;
+
+            }
+
+    }
+   else{
+        $sql= $conn->query("SELECT *FROM party WHERE status='1' ");
     while ($d = $sql->fetch_assoc()){
         $data[]=$d;
         
     }
-    exit (json_encode($data)); //return
+     //return
+}
+    exit (json_encode($data));
 }

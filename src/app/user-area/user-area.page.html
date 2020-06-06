@@ -13,20 +13,51 @@
     <ion-avatar class="ion-align-self-end">
       <ion-img src="../assets/images/user.png"></ion-img>
     </ion-avatar>
-  </div><br>
+  </div>
 
   <div align="center" class="testo">
-  <ion-text >
-    <h6><b>Nome: </b> {{name}} </h6>
-    <h6><b>Cognome: </b>{{lastname}}</h6>
-    <h6><b>Username:</b> {{username}}</h6>
-  </ion-text>
 
-    <ion-button size="small" color="warning">Cambia Password</ion-button><br>
-    <ion-button size="small" color="danger"> Logout </ion-button><br><br><br>
+<br>
+    <ion-text> <h7>{{name}} &nbsp; &nbsp; {{lastname}}</h7> </ion-text>
+   <br><br>
+    <ion-button expand="block">
+      <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
+      &nbsp;&nbsp;&nbsp;&nbsp;Cambia Password &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+    </ion-button>
+    <ion-button expand="block" (click)="logout()">
+      <ion-icon slot="start" name="log-out-outline"></ion-icon>
+      &nbsp;&nbsp;&nbsp;Logout &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+    </ion-button>
 
-      Sezione Party creati
+
     </div>
+   <br>
+
+
+
+
+
+   <h6>&nbsp;&nbsp;Party creati da me:</h6>
+    <ion-list class="lista">
+
+      <ion-item  *ngFor="let party of partys"  >
+        <ion-thumbnail slot="start">
+          <img src="../../assets/images/{{party.image}}.png">
+        </ion-thumbnail>
+        <ion-label>
+          <h2> {{party.name}}</h2>
+          <p>{{party.genre}}-{{party.mood}}</p>
+          <p>{{party.description}} </p>
+
+
+        </ion-label>
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+
+    </ion-list>
 
 
 

@@ -18,8 +18,12 @@ export class PartyService {
   }
 
   getAll(){
+     return this.http.get<[Party]>(this.url + '/getAll-party.php');
+    //return this.http.get<Party>(`${this.url}/getAll-party.php`);
+  }
+  get(id:string){
     // return this.http.get<[Party]>(this.url + '/getAll-party');
-    return this.http.get<Party>(`${this.url}/getAll-party.php`);
+    return this.http.get<[Party]>(this.url + '/getAll-party.php' + '/' + id);
   }
 
 }

@@ -3,11 +3,18 @@ ion-content{
 }
 
 b {
-  font-weight: 500;
+  font-weight: bold;
 }
 
 h1{
   font-family: 'Lato Black';
+}
+h7{
+  text-align: center;
+  font-size:140% ;
+  //justify-content: center;
+  text-transform: uppercase;
+
 }
 .avatar{
   display: flex;
