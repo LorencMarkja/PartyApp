@@ -40,7 +40,8 @@
 
 
    <h6>&nbsp;&nbsp;Party creati da me:</h6>
-    <ion-list class="lista">
+      <p *ngIf=" partys == ''" > <h8><b>Ancora nessun party </b><br> In questa sezione potrai visulizzare l'elenco dei party creati da te </h8></p>
+    <ion-list *ngIf=" partys != ''"  >
 
       <ion-item  *ngFor="let party of partys"  >
         <ion-thumbnail slot="start">
