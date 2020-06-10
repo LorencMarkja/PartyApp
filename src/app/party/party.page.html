@@ -8,30 +8,30 @@
 </ion-header>
 
 <ion-content class="ion-padding" *ngFor="let party of party">
- 
  <div class="details">
    <ion-grid>
      <ion-row>
-      <h1>{{party.name}}</h1>
-     </ion-row>
-     <ion-row>
-       <ion-col>
+       <ion-col class="ion-align-self-start">
         <ion-img src="../../assets/images/{{party.image}}.png"></ion-img>
        </ion-col>
        <ion-col class="desc">
-         {{party.description}}
+         <h1>{{party.name}}</h1>
+         <ion-button> Partecipa </ion-button>
        </ion-col>
       </ion-row>
       <ion-row>
-        numero partecipanti
+        <ion-col>
+          numero partecipanti 
+        </ion-col>
       </ion-row>
     </ion-grid>
   </div>
-
   <div class="playlist">
     <ion-grid>
       <ion-row>
-        <ion-img src="https://d2uolguxr56s4e.cloudfront.net/img/kartrapages/video_player_placeholder.gif"></ion-img>    
+        <ion-col size="12">
+          <ion-img src="https://d2uolguxr56s4e.cloudfront.net/img/kartrapages/video_player_placeholder.gif"></ion-img>    
+        </ion-col>
       </ion-row>
     </ion-grid>
   </div>
