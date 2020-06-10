@@ -61,7 +61,7 @@ export class CreatePartyPage  {
           await toast.present();
           loading.dismiss();
           this.form_create.reset();
-          this.navCtrl.navigateRoot(['/tabs/dashboard']);
+          this.navCtrl.navigateRoot(['/party']);
 
           // *******    aggiungere reindirizzamento a pagina party   ************
         },

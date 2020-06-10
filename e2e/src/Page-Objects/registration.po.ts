@@ -13,10 +13,10 @@ export class RegistrationPO {
     }
 
     async fillForm(){
-        await element(by.css('ion-input[formControlName="firstname"] input')).sendKeys('Prova');
-        await element(by.css('ion-input[formControlName="lastname"] input')).sendKeys('Prova');
-        await element(by.css('ion-input[formControlName="username"] input')).sendKeys('Padmin');
-        await element(by.css('ion-input[formControlName="password"] input')).sendKeys('12345');
+        await element(by.css('ion-input[formControlName="firstname"] input')).sendKeys('Admin2');
+        await element(by.css('ion-input[formControlName="lastname"] input')).sendKeys('Admin2');
+        await element(by.css('ion-input[formControlName="username"] input')).sendKeys('AdminProva');
+        await element(by.css('ion-input[formControlName="password"] input')).sendKeys('123456');
         browser.sleep(200);
         await element(by.css('[type="submit"]')).click();
         browser.sleep(200);

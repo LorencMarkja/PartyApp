@@ -31,6 +31,9 @@ export class DashboardPage {
     this.router.navigateByUrl('/create-party');
   }
 
+  NavParty(id){
+    this.router.navigateByUrl('/party/' + id);
+  }
 
   ionViewDidEnter() {
     var token = localStorage.getItem('token');

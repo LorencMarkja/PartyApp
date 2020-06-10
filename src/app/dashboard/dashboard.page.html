@@ -32,11 +32,12 @@
 
     <ion-list class="lista">
 
-        <ion-item  *ngFor="let party of partys"  >
+        <ion-item  *ngFor="let party of partys" (click)="NavParty(party.id)">  
             <ion-thumbnail slot="start">
                 <img src="../../assets/images/{{party.image}}.png">
             </ion-thumbnail>
             <ion-label>
+                
                 <h2> {{party.name}}</h2>
                 <p>{{party.genre}}-{{party.mood}}</p>
                 <p>{{party.description}} </p>

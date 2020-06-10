@@ -25,6 +25,11 @@ const routes: Routes = [
     // loadChildren: ' ./tabs/tabs.module#TabsPageModule'
     loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule)
   },
+  {
+    path: 'party/:id',
+    loadChildren: () => import('./party/party.module').then( m => m.PartyPageModule)
+  },
+
 ];
 
 @NgModule({
