@@ -40,21 +40,22 @@ export class PartyPage implements OnInit {
     this.Uid = decoded['user_id'];
 
     this.PartyServ.getParty(id).subscribe(response => {
-      // this.partys = response;
       this.party = response;
-      console.log(this.party);
     });
-    
-    // this.playlists = this.ytService.searchPlaylist(this.keyword);
-    // this.playlists.subscribe (data => {
-    //   console.log('playlists:', data);
-    // }, async err => {
-    //   let alert = await this.alertCtrl.create({
-    //     message: 'No Playlist found for that keyword',
-    //     buttons: ['OK']
-    //   });
-    //   alert.present();
-    // })
+
+
+    let keyword = 
+
+    this.playlists = this.ytService.searchPlaylist(this.keyword);
+    this.playlists.subscribe (data => {
+      console.log('playlists:', data);
+    }, async err => {
+          let alert = await this.alertCtrl.create({
+          message: 'No Playlist found for that keyword',
+          buttons: ['OK']
+       });
+       alert.present();
+     })
   }
 
 }

@@ -1,6 +1,15 @@
 ion-col{
-    padding: 0;
+    padding: 1%;
 }
-.desc{
-    padding-left: 5%;
+
+.desc {
+    ion-button{
+        margin-top: 10%;
+    }
+
+    h1{
+        font-size: 1.2rem;
+        margin: 0;
+    }
+   
 }
