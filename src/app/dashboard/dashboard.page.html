@@ -6,7 +6,7 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content id="new_P" class="ion-padding">
     <!--
     <div class="addParty">
         <ion-fab-button (click)="onCreate()">
@@ -30,7 +30,7 @@
     </div>
 
 
-    <ion-list class="lista">
+    <ion-list id="listaP" class="lista">
 
         <ion-item  *ngFor="let party of partys" (click)="NavParty(party.id)">  
             <ion-thumbnail slot="start">

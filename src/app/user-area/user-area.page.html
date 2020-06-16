@@ -25,7 +25,7 @@
       &nbsp;&nbsp;&nbsp;&nbsp;Cambia Password &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
     </ion-button>
-    <ion-button expand="block" (click)="logout()">
+    <ion-button id="logout" expand="block" (click)="logout()">
       <ion-icon slot="start" name="log-out-outline"></ion-icon>
       &nbsp;&nbsp;&nbsp;Logout &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
@@ -40,8 +40,7 @@
 
 
    <h6>&nbsp;&nbsp;Party creati da me:</h6>
-      <p *ngIf=" partys == ''" > <h8><b>Ancora nessun party </b><br> In questa sezione potrai visulizzare l'elenco dei party creati da te </h8></p>
-    <ion-list *ngIf=" partys != ''"  >
+    <ion-list class="lista">
 
       <ion-item  *ngFor="let party of partys"  >
         <ion-thumbnail slot="start">
