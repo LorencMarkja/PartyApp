@@ -26,4 +26,9 @@ export class PartyService {
     return this.http.get<[Party]>(this.url + '/getAll-party.php' + '?id=' + id);
   }
 
+  //party
+  getParty(id:string){
+    // return this.http.get<[Party]>(this.url + '/getAll-party');
+    return this.http.get<[Party]>(this.url + '/Party.php' + '?id=' + id);
+  }
 }
