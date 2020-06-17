@@ -38,24 +38,24 @@ export class PartyPage implements OnInit {
 
     this.name = decoded['firstname'];
     this.Uid = decoded['user_id'];
-
+    
     this.PartyServ.getParty(id).subscribe(response => {
       this.party = response;
     });
 
 
-    let keyword = 
+    // let keyword = 'rock';
 
-    this.playlists = this.ytService.searchPlaylist(this.keyword);
-    this.playlists.subscribe (data => {
-      console.log('playlists:', data);
-    }, async err => {
-          let alert = await this.alertCtrl.create({
-          message: 'No Playlist found for that keyword',
-          buttons: ['OK']
-       });
-       alert.present();
-     })
+    // this.playlists = this.ytService.searchPlaylist(this.keyword);
+    // this.playlists.subscribe (data => {
+    //   console.log('playlists:', data);
+    // }, async err => {
+    //       let alert = await this.alertCtrl.create({
+    //       message: 'No Playlist found for that keyword',
+    //       buttons: ['OK']
+    //    });
+    //    alert.present();
+    //  })
   }
 
 }

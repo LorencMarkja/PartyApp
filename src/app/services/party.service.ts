@@ -13,9 +13,11 @@ export class PartyService {
   private url = 'http://localhost:8888/auth_app/api';
   constructor(private http: HttpClient) { }
 
-  create(party: Party) {
-    return this.http.post(`${this.url}/createP.php`, party);
-  }
+  create(party: Party): Observable<any> {
+    return this.http.post<{ res: any }>(`${this.url}/createP.php`, party).pipe(
+      map(response => response.res)
+  );
+}
 
   getAll(){
      return this.http.get<[Party]>(this.url + '/getAll-party.php');

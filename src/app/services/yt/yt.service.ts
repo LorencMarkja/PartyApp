@@ -8,12 +8,12 @@ import { map } from 'rxjs/operators';
 })
 export class YtService {
 
-  apiKey='AIzaSyAF5V95lUqUPeRIbOwpf09a_Gg5VihOCj0'; //apikey google console
+  apiKey='AIzaSyCiU2vmdc9jsfGQ2koKehe2O5B5v4SOOdU'; //apikey google console
 
   constructor( public http: HttpClient) { }
 
-  searchPlaylist(keyword){
-    return this.http.get('https://www.googleapis.com/youtube/v3/search?part=snippet&q='+ keyword +'&type=playlist&key='+ this.apiKey).pipe(
+  searchPlaylist(kw1, kw2){
+    return this.http.get('https://www.googleapis.com/youtube/v3/search?part=snippet&q='+ kw1+'+'+ kw2 +'&type=playlist&key='+ this.apiKey +'&maxResults=1').pipe(
       map((res: any) => {
         return res['items'];
       })

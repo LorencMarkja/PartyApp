@@ -21,11 +21,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $sql = $conn->query("INSERT INTO party (name, description, genre, mood, organizer) VALUES ('$name', '$description', '$genre', '$mood', '$user')");
     if ($sql) {
+        $sql2 = $conn->query("SELECT id from party ORDER BY id DESC LIMIT 1");
+        if($sql2->num_rows > 0){
+            $data=$sql2->fetch_assoc();
+            $last_id = $data['id'];
+        }
         http_response_code(201);
-        echo json_encode(array('message' => 'Party created'));
+        echo json_encode(array('res' => $last_id));
     } else {
         http_response_code(500);
-        echo json_encode(array('message' =>'Internal Server error'));
+        echo json_encode(array('message' => 'Internal Server error  '));
       // echo " $name, $description, $genre, $mood, $startT, $endT ";
 
     }
