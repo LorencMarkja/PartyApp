@@ -44,11 +44,12 @@
       </ion-select>
     </ion-item>
     <ion-input  style="display:none"  type="text" required formControlName="user" value="{{Uid}}"></ion-input>
-
     <ion-button type="submit" class="ion-margin-top" expand="block" [disabled]="form_create.invalid">Crea</ion-button>
-
   </form>
 
-
+  <form [formGroup]="playlist_form">
+    <ion-input  style="display:none"  type="text" required formControlName="party"></ion-input>
+    <ion-input  style="display:none"  type="text" required formControlName="youtube_p"></ion-input>
+  </form>
 
 </ion-content>
