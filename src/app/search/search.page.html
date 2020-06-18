@@ -1,9 +1,47 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>search</ion-title>
+<!DOCTYPE html>
+<html lang="en">
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
   </ion-toolbar>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" rel="stylesheet">
 </ion-header>
+<ion-content class="ion-padding">
+  <form [formGroup]="form" (submit)="onSubmit()">
 
-<ion-content>
+    <ion-searchbar required formControlName="searchCond"> </ion-searchbar>
 
+    <!-- <ion-input type="text" required formControlName="searchCond"> </ion-input> -->
+
+    <ion-button type="submit" class="ion-margin-top" expand="block" [disabled]="form.invalid">Cerca</ion-button>
+  </form>
+
+  <br>
+
+
+
+
+  <p *ngIf=" partys == ''" > <b>Nessun party trovato </b><br>  </p>
+  <ion-list class="lista"  *ngIf=" partys != ''" >
+    <h6>&nbsp;&nbsp;Risultati della ricerca:</h6>
+
+
+    <ion-item  *ngFor="let party of partys"  (click)="NavParty(party.id)">
+      <ion-thumbnail slot="start">
+        <img src="../../assets/images/{{party.image}}.png">
+      </ion-thumbnail>
+      <ion-label>
+        <h2> {{party.name}}</h2>
+        <p>{{party.genre}}-{{party.mood}}</p>
+        <p>{{party.description}} </p>
+
+
+      </ion-label>
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </ion-item>
+
+
+  </ion-list>
 </ion-content>
+

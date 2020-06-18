@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-
-import{ Playlist } from './playlist.model';
+import {CondictionModel} from './condiction.model';
+import { Playlist } from './playlist.model';
 
 
 
@@ -40,5 +40,8 @@ export class PartyService {
   getParty(id:string){
     // return this.http.get<[Party]>(this.url + '/getAll-party');
     return this.http.get<[Party]>(this.url + '/Party.php' + '?id=' + id);
+  }
+  search(searchCond: CondictionModel){
+    return this.http.post<[Party]>(`${this.url}/search.php`, searchCond);
   }
 }
