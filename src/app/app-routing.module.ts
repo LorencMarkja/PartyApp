@@ -29,6 +29,10 @@ const routes: Routes = [
     path: 'party/:id',
     loadChildren: () => import('./party/party.module').then( m => m.PartyPageModule)
   },
+  {
+    path: 'party-playlist',
+    loadChildren: () => import('./party-playlist/party-playlist.module').then( m => m.PartyPlaylistPageModule)
+  },
 
 ];
 
