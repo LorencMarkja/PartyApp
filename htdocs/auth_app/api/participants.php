@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     else {
         http_response_code(500);
-       // echo json_encode(array('message' => 'Internal Server error   '));
+       // echo json_encode(array('message' => 'Internal Server error 12345  '));
 
     }
 }
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 
 
-       $sql= $conn->query("SELECT count( distinct user) as number FROM participants WHERE party='16' ;");
+       $sql= $conn->query("SELECT count( distinct user) as number FROM participants WHERE party='$party' ;");
 
 
 
@@ -51,3 +51,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 }
 
+if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
+    if(isset($_GET['user'])){
+
+        $user= $conn->real_escape_string($_GET['user']);
+ 
+ 
+ 
+        $sql= $conn->query("DELETE FROM participants WHERE user = $user;");
+ 
+ 
+ 
+        if ($sql) {
+                 http_response_code(201);
+ 
+                 echo json_encode(array('message' => 'Partecipazione al party eliminata correttamnete  '));
+             }
+             else {
+                     http_response_code(500);
+                    echo json_encode(array('message' => 'Internal Server error   '));
+ 
+                 }
+ 
+    }
+     
+}

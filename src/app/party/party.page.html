@@ -1,39 +1,42 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/dashboard"></ion-back-button>
-    </ion-buttons>
-    <ion-title>Party Page</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/tabs/dashboard"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Party Page</ion-title>
+    </ion-toolbar>
 </ion-header>
-
 <ion-content class="ion-padding" *ngFor="let party of party">
- <div class="details">
-   <ion-grid>
-     <ion-row>
-       <ion-col class="ion-align-self-start">
-        <ion-img src="../../assets/images/{{party.image}}.png"></ion-img>
-       </ion-col>
-       <ion-col class="desc">
-         <h1>{{party.name}}</h1>
-         <ion-button size="small"> Partecipa </ion-button>
-       </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          Numero partecipanti <!-- numero di partecipanti -->
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </div>
+    <div class="details">
+        <ion-grid>
+            <ion-row>
+                <ion-col class="ion-align-self-start">
+                    <ion-img src="../../assets/images/{{party.image}}.png"></ion-img>
+                </ion-col>
+                <ion-col class="desc">
+                    <h1>{{party.name}}</h1>
 
-  <div class="playlist">
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <!--palceholder video qui ci va il video-->
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </div>
-</ion-content> 
+                    <form [formGroup]="participants" (submit)="insert_participants()" >
+                        <ion-input style="display:none" type="text" required formControlName="user" > </ion-input>
+                        <ion-input style="display:none"  type="text" required formControlName="party" > </ion-input>
+                        <ion-button type="submit" size="small" >Partecipa</ion-button>
+                    </form>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col >
+                    Numero partecipanti : {{numPar}}<!-- numero di partecipanti -->
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+    <div class="playlist">
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <!--palceholder video qui ci va il video-->
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+</ion-content>

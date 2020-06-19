@@ -30,27 +30,7 @@ export class SearchPage {
     const loading = await this.loadingCtrl.create({ message: 'Searching party ...' });
     await loading.present();
     console.log(this.form.value);
-    this.partyService.search(this.form.value).subscribe(
-
-        /*
-         // If success
-         async () => {
-           const toast = await this.toastCtrl.create({ message: 'Party Creato', duration: 2000, color: 'dark' });
-           await toast.present();
-           loading.dismiss();
-           this.form.reset();
-           // *******    aggiungere reindirizzamento a pagina party   ************
-         },
-         // If there is an error
-         async () => {
-           const alert = await this.alertCtrl.create({ message: 'There is an error', buttons: ['OK'] });
-           loading.dismiss();
-           await alert.present();
-         }
-
-         */
-
-        response => {
+    this.partyService.search(this.form.value).subscribe(response => {
           // this.partys = response;
           this.partys = response;
           console.log(this.partys) ;
