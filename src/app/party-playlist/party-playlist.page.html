@@ -1,7 +1,11 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Playlist Party</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="delete()" defaultHref="/tabs/dashboard"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
+
 </ion-header>
 
 <ion-content>

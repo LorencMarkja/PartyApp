@@ -124,4 +124,7 @@
     <preference name="SplashShowOnlyFirstTime" value="false" />
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
+    <feature name="YoutubeVideoPlayer">
+        <param name="ios-package" value="YoutubeVideoPlayer" />
+    </feature>
 </widget>

@@ -24,6 +24,10 @@
 		5AA0A79C706A438C80A24010 /* IONAssetHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD6376B88A941AF8E7A1996 /* IONAssetHandler.m */; };
 		E84DD4FAC4734503AAD5433B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E11BF51A534F48B0CEFD31 /* WebKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		8D998527EE0F4063900AF5EC /* CDVIonicKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 27311C13C6B44F5E96A55512 /* CDVIonicKeyboard.m */; };
+		F34DC29C6DC8494FB7166989 /* YoutubeVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD284DC168B49BFA549F799 /* YoutubeVideoPlayer.m */; };
+		BEBC1D31AD2D4DE9AAF2FE1D /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51059629FDD745EEAD904172 /* MediaPlayer.framework */; };
+		9109D8C8FE3446E0956E3953 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8500C700086B4C3B9091CA6C /* AVFoundation.framework */; };
+		A01B7E23EB9143849DCCF13B /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 333C5495085348638920BA88 /* JavaScriptCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +94,11 @@
 		E3E11BF51A534F48B0CEFD31 /* WebKit.framework */ = {isa = PBXFileReference; name = "WebKit.framework"; path = "System/Library/Frameworks/WebKit.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		27311C13C6B44F5E96A55512 /* CDVIonicKeyboard.m */ = {isa = PBXFileReference; name = "CDVIonicKeyboard.m"; path = "cordova-plugin-ionic-keyboard/CDVIonicKeyboard.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
 		61821055650D4EDCBD2A0536 /* CDVIonicKeyboard.h */ = {isa = PBXFileReference; name = "CDVIonicKeyboard.h"; path = "cordova-plugin-ionic-keyboard/CDVIonicKeyboard.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		DAD284DC168B49BFA549F799 /* YoutubeVideoPlayer.m */ = {isa = PBXFileReference; name = "YoutubeVideoPlayer.m"; path = "cordova-plugin-youtube-video-player/YoutubeVideoPlayer.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		CDB9C6B0C80D4C739AF07F00 /* YoutubeVideoPlayer.h */ = {isa = PBXFileReference; name = "YoutubeVideoPlayer.h"; path = "cordova-plugin-youtube-video-player/YoutubeVideoPlayer.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		51059629FDD745EEAD904172 /* MediaPlayer.framework */ = {isa = PBXFileReference; name = "MediaPlayer.framework"; path = "System/Library/Frameworks/MediaPlayer.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		8500C700086B4C3B9091CA6C /* AVFoundation.framework */ = {isa = PBXFileReference; name = "AVFoundation.framework"; path = "System/Library/Frameworks/AVFoundation.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		333C5495085348638920BA88 /* JavaScriptCore.framework */ = {isa = PBXFileReference; name = "JavaScriptCore.framework"; path = "System/Library/Frameworks/JavaScriptCore.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +108,9 @@
 			files = (
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
 				E84DD4FAC4734503AAD5433B /* WebKit.framework in Frameworks */,
+				BEBC1D31AD2D4DE9AAF2FE1D /* MediaPlayer.framework in Frameworks */,
+				9109D8C8FE3446E0956E3953 /* AVFoundation.framework in Frameworks */,
+				A01B7E23EB9143849DCCF13B /* JavaScriptCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +182,9 @@
 			isa = PBXGroup;
 			children = (
 				E3E11BF51A534F48B0CEFD31 /* WebKit.framework */,
+				51059629FDD745EEAD904172 /* MediaPlayer.framework */,
+				8500C700086B4C3B9091CA6C /* AVFoundation.framework */,
+				333C5495085348638920BA88 /* JavaScriptCore.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -214,6 +229,8 @@
 				8B6E34B900CB4335B5224356 /* IONAssetHandler.h */,
 				27311C13C6B44F5E96A55512 /* CDVIonicKeyboard.m */,
 				61821055650D4EDCBD2A0536 /* CDVIonicKeyboard.h */,
+				DAD284DC168B49BFA549F799 /* YoutubeVideoPlayer.m */,
+				CDB9C6B0C80D4C739AF07F00 /* YoutubeVideoPlayer.h */,
 			);
 			name = Plugins;
 			path = "auth_app/Plugins";
@@ -347,6 +364,7 @@
 				3AE9DAEA39524583BA5C9C59 /* CDVWKProcessPoolFactory.m in Sources */,
 				5AA0A79C706A438C80A24010 /* IONAssetHandler.m in Sources */,
 				8D998527EE0F4063900AF5EC /* CDVIonicKeyboard.m in Sources */,
+				F34DC29C6DC8494FB7166989 /* YoutubeVideoPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

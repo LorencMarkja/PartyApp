@@ -101,7 +101,7 @@ export class PartyPage implements OnInit {
 
           loading.dismiss();
           this.participants.reset();
-          this.router.navigateByUrl('/party-playlist');
+          this.router.navigateByUrl('/party-playlist/' + id);
           //aggiungere reindirizzamento pagina playlist-party
         },
         async () => {

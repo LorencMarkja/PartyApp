@@ -51,6 +51,11 @@ export class PartyService {
     );
   }
 
+  delete(id: string){
+    return this.http.delete(`${this.url}/participants.php` + '?user=' + id);
+  }
+
+
   getP(id:string){
     // return this.http.get<[Party]>(this.url + '/getAll-party');
     return this.http.get<string>(this.url + '/participants.php' + '?party=' + id) ;
@@ -59,4 +64,5 @@ export class PartyService {
   getPlaylist(id:string){
     return this.http.get<[Playlist]>(this.url + '/getPlaylist.php' + '?id=' + id);
   }
+
 }
