@@ -30,7 +30,7 @@ const routes: Routes = [
     loadChildren: () => import('./party/party.module').then( m => m.PartyPageModule)
   },
   {
-    path: 'party-playlist',
+    path: 'party-playlist/:id',
     loadChildren: () => import('./party-playlist/party-playlist.module').then( m => m.PartyPlaylistPageModule)
   },
 

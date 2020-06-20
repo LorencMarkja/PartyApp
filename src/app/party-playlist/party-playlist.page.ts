@@ -1,4 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
+import { YtService } from '../services/yt/yt.service';
+import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import {PartyService} from '../services/party.service';
+import { Platform } from '@ionic/angular';
+import {Playlist} from '../services/playlist.model';
+import { async } from '@angular/core/testing';
+
 
 @Component({
   selector: 'app-party-playlist',
@@ -6,10 +15,37 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./party-playlist.page.scss'],
 })
 export class PartyPlaylistPage implements OnInit {
+  
+  videos: Observable<any[]>;
+  playlist: Observable<Playlist[]>;
+  youtube_p: any;
 
-  constructor() { }
+  constructor( 
+    private PartyServ: PartyService,
+    private route: ActivatedRoute, 
+    private ytService: YtService, 
+    private youtube: YoutubeVideoPlayer,
+    private plt: Platform
+  ) { }
 
   ngOnInit() {
+    let idParty= this.route.snapshot.paramMap.get('id');
+    this.PartyServ.getPlaylist(idParty).subscribe( response => {
+      this.playlist=response[0].youtube_p;
+      this.videos= this.ytService.getListVideos(this.playlist);
+      this.videos.subscribe( 
+        async data => {
+          console.log('videos:', data);
+      });
+    });
+  }
+
+  openVideo(video) {
+    if (this.plt.is('cordova')) {
+      this.youtube.openVideo(video.snippet.resourceId.videoId);
+    } else {
+     window.open('https://www.youtube.com/watch?v=' + video.snippet.resourceId.videoId);
+    }
   }
 
 }

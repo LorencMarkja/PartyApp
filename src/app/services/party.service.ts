@@ -41,6 +41,7 @@ export class PartyService {
     // return this.http.get<[Party]>(this.url + '/getAll-party');
     return this.http.get<[Party]>(this.url + '/Party.php' + '?id=' + id);
   }
+
   search(searchCond: CondictionModel){
     return this.http.post<[Party]>(`${this.url}/search.php`, searchCond);
   }
@@ -53,5 +54,9 @@ export class PartyService {
   getP(id:string){
     // return this.http.get<[Party]>(this.url + '/getAll-party');
     return this.http.get<string>(this.url + '/participants.php' + '?party=' + id) ;
+  }
+
+  getPlaylist(id:string){
+    return this.http.get<[Playlist]>(this.url + '/getPlaylist.php' + '?id=' + id);
   }
 }
