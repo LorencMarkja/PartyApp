@@ -55,10 +55,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
     if(isset($_GET['user'])){
 
         $user= $conn->real_escape_string($_GET['user']);
- 
- 
- 
-        $sql= $conn->query("DELETE FROM participants WHERE user = $user;");
+        $sql2 = $conn->query("SELECT party from participants WHERE user= $user;");
+                if($sql2->num_rows > 0){
+                    $data=$sql2->fetch_assoc();
+                    $party = $data['party'];
+                }
+
+
+       $sql= $conn->query("DELETE FROM participants WHERE user = $user;");
+
+        $sql3 = $conn->query("SELECT organizer from party WHERE id= $party;");
+                       if($sql2->num_rows > 0){
+                           $data=$sql3->fetch_assoc();
+                           $organizer = $data['organizer'];
+                       }
+        if ($user==$organizer){
+            $sql4 = $conn->query("UPDATE party SET status='0' WHERE id= $party;");
+
+}
  
  
  

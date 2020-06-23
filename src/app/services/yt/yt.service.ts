@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 })
 export class YtService {
 
-  apiKey='AIzaSyCiU2vmdc9jsfGQ2koKehe2O5B5v4SOOdU'; //apikey google console
+  apiKey='AIzaSyClzhPDoHWDmnT8D3mOWyV4za2gP_WIpMM'; //apikey google console
 
   constructor( public http: HttpClient) { }
 

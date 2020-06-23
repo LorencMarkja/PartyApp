@@ -47,8 +47,8 @@ export class PartyPlaylistPage implements OnInit {
   }
 
   openVideo(video) {
-    this.url = "https://www.youtube.com/watch?v="+ video.snippet.resourceId.videoId;
-    this.urlSafe=this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
+    this.url = "https://www.youtube.com/watch?v=" + video.snippet.resourceId.videoId;
+   // this.urlSafe=this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
     console.log(this.urlSafe, this.url);
     // if (this.plt.is('cordova')) {
     //   this.youtube.openVideo(video.snippet.resourceId.videoId);

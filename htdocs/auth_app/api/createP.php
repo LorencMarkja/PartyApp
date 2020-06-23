@@ -30,6 +30,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $sql3 = $conn->query("INSERT INTO playlists (party) VALUES ('$last_id')");
         http_response_code(201);
         echo json_encode(array('res' => $last_id));
+
+         $sql3 = $conn->query("INSERT INTO participants (user, party) VALUES ('$user', '$last_id')");
+
     } else {
         http_response_code(500);
         echo json_encode(array('message' => 'Internal Server error  '));
