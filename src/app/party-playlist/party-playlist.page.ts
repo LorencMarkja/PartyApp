@@ -8,7 +8,7 @@ import { Platform } from '@ionic/angular';
 import {Playlist} from '../services/playlist.model';
 import { async } from '@angular/core/testing';
 import * as jwt_decode from 'jwt-decode';
-import {DomSanitizer,SafeResourceUrl,} from '@angular/platform-browser';
+import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-party-playlist',
@@ -18,27 +18,28 @@ import {DomSanitizer,SafeResourceUrl,} from '@angular/platform-browser';
 export class PartyPlaylistPage implements OnInit {
   videos: Observable<any[]>;
   playlist: string;
+  // tslint:disable-next-line:variable-name
   youtube_p: any;
   Uid: any;
   alertCtrl: any;
   url: any;
-  urlSafe:SafeResourceUrl;
+  urlSafe: SafeResourceUrl;
 
-  constructor( 
+  constructor(
     private PartyServ: PartyService,
-    private route: ActivatedRoute, 
-    private ytService: YtService, 
+    private route: ActivatedRoute,
+    private ytService: YtService,
     private youtube: YoutubeVideoPlayer,
     private plt: Platform,
-    public sanitizer:DomSanitizer
+    public sanitizer: DomSanitizer
   ) { }
 
   ngOnInit() {
-    let idParty= this.route.snapshot.paramMap.get('id');
+    let idParty = this.route.snapshot.paramMap.get('id');
     this.PartyServ.getPlaylist(idParty).subscribe( response => {
       this.playlist = response[0].youtube_p;
-      this.videos= this.ytService.getListVideos(this.playlist);
-      this.videos.subscribe( 
+      this.videos = this.ytService.getListVideos(this.playlist);
+      this.videos.subscribe(
         async data => {
           console.log('videos:', data);
       });
@@ -46,7 +47,7 @@ export class PartyPlaylistPage implements OnInit {
   }
 
   openVideo(video) {
-    this.url= "https://www.youtube.com/watch?v="+ video.snippet.resourceId.videoId;
+    this.url = "https://www.youtube.com/watch?v="+ video.snippet.resourceId.videoId;
     this.urlSafe=this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
     console.log(this.urlSafe, this.url);
     // if (this.plt.is('cordova')) {
