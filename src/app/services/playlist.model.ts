@@ -1,5 +1,5 @@
 export interface Playlist {
     id?: string;
     party: string;
-    youtube_p: any;
+    youtube_p: string;
 }
