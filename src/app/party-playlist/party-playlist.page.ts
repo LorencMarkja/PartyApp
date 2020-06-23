@@ -36,7 +36,7 @@ export class PartyPlaylistPage implements OnInit {
   ngOnInit() {
     let idParty= this.route.snapshot.paramMap.get('id');
     this.PartyServ.getPlaylist(idParty).subscribe( response => {
-      this.playlist=response[0].youtube_p;
+      this.playlist = response[0].youtube_p;
       this.videos= this.ytService.getListVideos(this.playlist);
       this.videos.subscribe( 
         async data => {
