@@ -20,7 +20,7 @@ export class YtService {
     );
   }
   getListVideos(listId){
-    return this.http.get('https://www.googleapis.com/youtube/v3/playlistItems?key=' + this.apiKey + '&playlistId=' + listId + '&part=snippet').pipe(
+    return this.http.get('https://www.googleapis.com/youtube/v3/playlistItems?key=' + this.apiKey + '&playlistId=' + listId + '&part=snippet&maxResults=100').pipe(
       map((res: any) => {
         return res['items'];
       })
