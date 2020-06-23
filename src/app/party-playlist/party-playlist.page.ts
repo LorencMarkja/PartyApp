@@ -15,6 +15,7 @@ import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
   templateUrl: './party-playlist.page.html',
   styleUrls: ['./party-playlist.page.scss'],
 })
+
 export class PartyPlaylistPage implements OnInit {
   videos: Observable<any[]>;
   playlist: string;
@@ -35,27 +36,30 @@ export class PartyPlaylistPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    let idParty = this.route.snapshot.paramMap.get('id');
+    this.urlSafe='';
+    let idParty= this.route.snapshot.paramMap.get('id');
     this.PartyServ.getPlaylist(idParty).subscribe( response => {
-      this.playlist = response[0].youtube_p;
-      this.videos = this.ytService.getListVideos(this.playlist);
-      this.videos.subscribe(
+      this.playlist=response[0].youtube_p;
+      this.url= "https://www.youtube-nocookie.com/embed/videoseries?list="+ this.playlist;
+      this.urlSafe=this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
+      this.videos= this.ytService.getListVideos(this.playlist);
+      this.videos.subscribe( 
         async data => {
           console.log('videos:', data);
       });
     });
   }
 
-  openVideo(video) {
-    this.url = "https://www.youtube.com/watch?v=" + video.snippet.resourceId.videoId;
-   // this.urlSafe=this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
-    console.log(this.urlSafe, this.url);
-    // if (this.plt.is('cordova')) {
-    //   this.youtube.openVideo(video.snippet.resourceId.videoId);
-    // } else {
-    //  window.open('https://www.youtube.com/watch?v=' + video.snippet.resourceId.videoId);
-    // }
-  }
+  // openVideo(video) {
+  //   this.url = "https://www.youtube.com/watch?v=" + video.snippet.resourceId.videoId;
+  //   this.urlSafe=this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
+  //   console.log(this.urlSafe, this.url);
+  //   if (this.plt.is('cordova')) {
+  //     this.youtube.openVideo(video.snippet.resourceId.videoId);
+  //   } else {
+  //    window.open('https://www.youtube.com/watch?v=' + video.snippet.resourceId.videoId);
+  //   }
+  // }
 
   delete(){
     var token = localStorage.getItem('token');

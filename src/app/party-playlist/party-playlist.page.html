@@ -5,18 +5,19 @@
       <ion-back-button (click)="delete()" defaultHref="/tabs/dashboard"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
-
 </ion-header>
 
 <ion-content>
-  <ion-grid>
-    <ion-row *ngFor="let video of videos | async" >
-        <button ion-item (click)="openVideo(video)" detail-none>
-          <ion-thumbnail item-start>
-          <img [src]="video.snippet.thumbnails.default.url">
-          </ion-thumbnail>
-          <h2>{{ video.snippet.title }}</h2>
-        </button>
-    </ion-row>
-  </ion-grid>
+  <p *ngIf=" urlSafe != '' ">
+     <iframe [src]="urlSafe" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </p>
+  <ion-list>
+    <ion-item *ngFor="let video of videos | async">
+        <img width="40px" [src]="video.snippet.thumbnails.default.url"> &nbsp;&nbsp;&nbsp;
+        <ion-label>
+              <p>{{ video.snippet.title }}</p>
+        </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
+
