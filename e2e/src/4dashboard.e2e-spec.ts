@@ -1,7 +1,7 @@
 import { dashboardPO } from './Page-Objects/dashboard.po';
 import {browser} from 'protractor';
 
-describe ('Dashboard', () => {
+describe ('Dashboard Page', () => {
     let dashboard: dashboardPO;
 
     beforeEach(() =>{

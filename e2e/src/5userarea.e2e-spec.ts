@@ -1,9 +1,9 @@
 import { userareaPO } from './Page-Objects/userarea.po';
 
-describe ('User-area', () => {
+describe ('User-area Page', () => {
     let userarea: userareaPO;
 
-    beforeEach(() =>{
+    beforeAll(() =>{
         userarea = new userareaPO();
         userarea.browseToPage();
     });
