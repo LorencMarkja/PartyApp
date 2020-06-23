@@ -2,13 +2,21 @@
     include_once 'config/dbh.php';
     include_once 'config/cors.php';
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $data = json_decode(file_get_contents("php://input"));
+    if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+        //$data = json_decode(file_get_contents("php://input"));
     
-        $resp = $data->youtube_p;
-        $idParty = $data->party;
+        //$idParty = $data->party;
+        //$resp = $data->youtube_p;
 
-        $sql = $conn->query("INSERT INTO playlists (party, youtube_p) VALUES ('$idParty', '$resp')");
+        $id=$conn->real_escape_string($_GET['playlistId']);
+    
+        $sql1= $conn->query ("SELECT id from playlists ORDER BY id DESC LIMIT 1");
+        if($sql1->num_rows > 0){
+            $data=$sql1->fetch_assoc();
+            $last_id = $data['id'];
+        }
+
+        $sql = $conn->query("UPDATE playlists SET youtube_p='$id' WHERE id='$last_id'");
 
         if ($sql) {
             http_response_code(201);

@@ -9,7 +9,7 @@ import {PartyService} from '../services/party.service';
 import { NavController } from '@ionic/angular';
 import * as jwt_decode from 'jwt-decode';
 import { Observable } from 'rxjs';
-import { Console } from 'console';
+
 
 @Component({
   selector: 'app-create-party',
@@ -20,9 +20,11 @@ export class CreatePartyPage  {
   Uid: any ;
   playlists: Observable<any[]>;
   playlist: any;
-  kw1: any;
-  kw2: any;
+  kw1:any;
+  kw2:any;
   idParty: any;  //id Party
+  idP: any;
+  
 
 
   constructor(
@@ -65,30 +67,28 @@ export class CreatePartyPage  {
   });
 
   async onCreate(){
-    // let kw1 = this.form_create['genre'];
-    // let kw2 = this.form_create['mood'];
-    // this.playlists = this.ytService.searchPlaylist(this.kw1, this.kw2);
-    // this.playlists.subscribe( data=>{
-    //   this.playlist=data;
-    // });
-    
-    console.log(this.playlist_form['party'], this.playlist_form['youtube_p'])
 
-    const loading = await this.loadingCtrl.create({ message: 'Creazione party in corso...' });
-    await loading.present();
-    this.partyService.create(this.form_create.value).subscribe(
+       const loading = await this.loadingCtrl.create({ message: 'Creazione party in corso...' });
+       await loading.present();
+       this.partyService.create(this.form_create.value).subscribe(
         // If success
         async res => {
           this.idParty=res;
-          this.playlist_form.value['party']=this.idParty;
-          this.playlist_form.value['youtube_p']='ciao';
-          console.log(this.playlist_form.value);
-          this.partyService.createP(this.playlist_form.value).subscribe();
+          this.kw1 = this.form_create.value['genre'];
+          this.kw2 = this.form_create.value['mood'];
+          
+          this.playlists = this.ytService.searchPlaylist(this.kw1, this.kw2);
+          this.playlists.subscribe( async data => {
+            this.playlist=data[0].id.playlistId;
+            this.playlist_form.value['youtube_p']=this.playlist;
+            console.log(this.playlist);
+            this.partyService.createP(this.playlist).subscribe();
+          //this.playlist_form.value['party']=this.idParty;
+        
           const toast = await this.toastCtrl.create({ message: 'Party Creato', duration: 2000, color: 'dark' });
           await toast.present();
           loading.dismiss();
           this.form_create.reset();
-          //this.partyService.createP(this.playlist_form.value).subscribe();
           this.navCtrl.navigateRoot(['/party/' + this.idParty]);
         },
         //If there is an error
@@ -98,6 +98,10 @@ export class CreatePartyPage  {
            await alert.present();
         }
     );
+    });
+
+    //console.log(this.playlist_form.value);
+    
 
   }
 

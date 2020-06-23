@@ -21,11 +21,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $sql = $conn->query("INSERT INTO party (name, description, genre, mood, organizer) VALUES ('$name', '$description', '$genre', '$mood', '$user')");
     if ($sql) {
+        
         $sql2 = $conn->query("SELECT id from party ORDER BY id DESC LIMIT 1");
         if($sql2->num_rows > 0){
             $data=$sql2->fetch_assoc();
             $last_id = $data['id'];
         }
+        $sql3 = $conn->query("INSERT INTO playlists (party) VALUES ('$last_id')");
         http_response_code(201);
         echo json_encode(array('res' => $last_id));
     } else {

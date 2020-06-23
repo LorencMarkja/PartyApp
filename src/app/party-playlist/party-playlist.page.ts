@@ -4,11 +4,11 @@ import { YtService } from '../services/yt/yt.service';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import {PartyService} from '../services/party.service';
-import {AlertController, Platform} from '@ionic/angular';
+import { Platform } from '@ionic/angular';
 import {Playlist} from '../services/playlist.model';
 import { async } from '@angular/core/testing';
 import * as jwt_decode from 'jwt-decode';
-
+import {DomSanitizer,SafeResourceUrl,} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-party-playlist',
@@ -16,12 +16,13 @@ import * as jwt_decode from 'jwt-decode';
   styleUrls: ['./party-playlist.page.scss'],
 })
 export class PartyPlaylistPage implements OnInit {
-  
   videos: Observable<any[]>;
-  playlist: Observable<Playlist[]>;
+  playlist: string;
   youtube_p: any;
   Uid: any;
-
+  alertCtrl: any;
+  url: any;
+  urlSafe:SafeResourceUrl;
 
   constructor( 
     private PartyServ: PartyService,
@@ -29,7 +30,7 @@ export class PartyPlaylistPage implements OnInit {
     private ytService: YtService, 
     private youtube: YoutubeVideoPlayer,
     private plt: Platform,
-    private alertCtrl: AlertController,
+    public sanitizer:DomSanitizer
   ) { }
 
   ngOnInit() {
@@ -45,12 +46,16 @@ export class PartyPlaylistPage implements OnInit {
   }
 
   openVideo(video) {
-    if (this.plt.is('cordova')) {
-      this.youtube.openVideo(video.snippet.resourceId.videoId);
-    } else {
-     window.open('https://www.youtube.com/watch?v=' + video.snippet.resourceId.videoId);
-    }
+    this.url= "https://www.youtube.com/watch?v="+ video.snippet.resourceId.videoId;
+    this.urlSafe=this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
+    console.log(this.urlSafe, this.url);
+    // if (this.plt.is('cordova')) {
+    //   this.youtube.openVideo(video.snippet.resourceId.videoId);
+    // } else {
+    //  window.open('https://www.youtube.com/watch?v=' + video.snippet.resourceId.videoId);
+    // }
   }
+
   delete(){
     var token = localStorage.getItem('token');
     var decoded = jwt_decode(token);
@@ -68,4 +73,5 @@ export class PartyPlaylistPage implements OnInit {
           await alert.present();
         });
 }
+
 }

@@ -21,8 +21,8 @@ export class PartyService {
    );
   }
 
-  createP(playlist: Playlist){
-    return this.http.post(`${this.url}/playlist.php`, playlist);
+  createP(playlist: string){
+    return this.http.get(`${this.url}/playlist.php?playlistId=`+ playlist);
   }
 
 
@@ -51,11 +51,6 @@ export class PartyService {
     );
   }
 
-  delete(id: string){
-    return this.http.delete(`${this.url}/participants.php` + '?user=' + id);
-  }
-
-
   getP(id:string){
     // return this.http.get<[Party]>(this.url + '/getAll-party');
     return this.http.get<string>(this.url + '/participants.php' + '?party=' + id) ;
@@ -65,4 +60,7 @@ export class PartyService {
     return this.http.get<[Playlist]>(this.url + '/getPlaylist.php' + '?id=' + id);
   }
 
+  delete(id: string){
+    return this.http.delete(`${this.url}/participants.php` + '?user=' + id);
+  }
 }
