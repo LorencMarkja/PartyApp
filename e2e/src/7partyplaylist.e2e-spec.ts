@@ -9,8 +9,8 @@ describe('Party Playlist Page', () => {
       Partyplay.browseToPage();
     });
   
-    it('should display registration Title', () => {
-        expect(Partyplay.getTitle()).toEqual('Party Playlist');
+    it('should display Party playlist Title', () => {
+        expect(Partyplay.getTitle()).toEqual('Playlist Party');
     });
 
     it('should display Youtube Player', ()=>{
